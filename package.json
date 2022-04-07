@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/riteshgulghane/node-course#readme",
   "dependencies": {
+    "postman-request": "^2.88.1-postman.31",
+    "request": "^2.88.2",
     "yargs": "^17.4.0"
   }
 }
