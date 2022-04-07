@@ -1,2 +1,1 @@
-const yargs = require("yargs");
-let str = 'office';
+console.log("hello Ritesh");
