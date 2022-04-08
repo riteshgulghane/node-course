@@ -12,12 +12,10 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback("something went wrong! ", undefined);
         } else {
-            callback(undefined, 
-                    {
-                    "weather_descriptions": response.body.current.weather_descriptions[0],
-                    "feelslike": response.body.current.feelslike
-                }
-            );
+            callback(undefined, {
+                "weather_descriptions": response.body.current.weather_descriptions[0],
+                "feelslike": response.body.current.feelslike
+            });
         }
     })
 }

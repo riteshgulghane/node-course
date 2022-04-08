@@ -3,24 +3,22 @@
 const geocode = require('./geocode');
 const forecast = require('./forecast');
 
-geocode('New York', (err, data) => {
-    console.log('data - ', data);
-    forecast(data.latitude, data.longitude, (error, data) => {
-        if (error) {
-            console.log('Error', error);
-        } else {
-            console.log('Data', data)
-        }
+
+module.exports = getWheatherAt = async (address, callback) => {
+    geocode(address, (err, data) => {
+        if (err)
+            return {
+                error: "unable to fetch the data"
+            }
+        forecast(data.latitude, data.longitude, (error, data) => {
+            if (error) {
+                return {
+                    'Error': error
+                }
+            } else {
+                console.log('Data', data)
+                callback(data);
+            }
+        })
     })
-})
-
-const add = (a, b, callback) => {
-    setTimeout(() => {
-        callback(a + b);
-    }, 2000);
 }
-
-add(1, 4, (sum) => {
-    console.log(sum) // Should print: 5
-})
-
