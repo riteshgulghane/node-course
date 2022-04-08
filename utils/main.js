@@ -1,7 +1,7 @@
 // ----------- Wheather App ----------------
 
-const geocode = require('./utils/geocode');
-const forecast = require('./utils/forecast');
+const geocode = require('./geocode');
+const forecast = require('./forecast');
 
 geocode('New York', (err, data) => {
     console.log('data - ', data);
