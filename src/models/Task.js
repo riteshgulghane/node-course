@@ -3,17 +3,20 @@ const mongoose = require('mongoose');
 const taskScheme = mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        camelcase: true
     },
     description: {
         type: String,
         required: true
     },
     author: {
-        type: ObjectId,
+        type: require('mongodb').ObjectId,
         ref: 'User',
-        required: true
+        // required: true
     }
+}, {
+    timestamps: true
 })
 
 // taskScheme.virtual('author').get
