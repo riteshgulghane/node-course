@@ -1,7 +1,6 @@
-require('dotenv').config()
 const mongoose = require('mongoose');
 
-const mongoUrl = 'mongodb://localhost/taskapp';
+const mongoUrl = process.env.mongoDBUrl;
 // const mongoUrl = 'mongodb+srv://kiranashop:kiranashop@cluster0.gsf6i.mongodb.net/kiranashop?retryWrites=true&w=majority';
 
 const connectDB = async () => {

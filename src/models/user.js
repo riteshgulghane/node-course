@@ -31,7 +31,7 @@ let UserSchema = mongoose.Schema({
     },
     token: {
         type: String,
-        required: true
+        // required: true
     }
 }, {
     timestamps: true

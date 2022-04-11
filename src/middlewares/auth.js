@@ -1,9 +1,17 @@
-const auth = (req, res, next) => {
-    const token = req.headers;
-    console.log('req.body - ', req.body);
-    console.log('token - ', JSON.stringify(token));
+const jwt = require('jsonwebtoken');
 
-    next();
+const auth = (req, res, next) => {
+    const token = req.headers['authorization'].replace("Bearer ", '');
+
+    jwt.verify(token, process.env.secret, (err, user) => {
+        if (user) {
+            req.user = user;
+            next();
+        } else
+            res.send(404);
+    });
+
+
 }
 
 module.exports = auth;
