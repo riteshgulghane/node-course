@@ -1,4 +1,3 @@
-const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
     const token = req.headers['authorization'].replace("Bearer ", '');
@@ -10,8 +9,6 @@ const auth = (req, res, next) => {
         } else
             res.send(404);
     });
-
-
 }
 
 module.exports = auth;

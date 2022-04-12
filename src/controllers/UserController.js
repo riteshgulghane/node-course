@@ -2,6 +2,7 @@ const userService = require('../services/UserService');
 const router = require('express').Router();
 
 router.get('/user', getUsers);
+router.post('/login/user', loginUser);
 router.post('/user', addOrUpdateUser);
 router.get('/user/me', getMe);
 router.delete('/user', deleteUser);
@@ -11,6 +12,8 @@ async function getUsers(req, res) {
 }
 
 async function addOrUpdateUser(req, res) {
+    console.log('addOrUpdateUser')
+
     res.send(await userService.addOrUpdateUser(req.body))
 }
 
@@ -21,6 +24,13 @@ async function getMe(req, res) {
 async function deleteUser(req, res) {
     res.send(await userService.deleteUser(req.user._id))
 }
+
+async function loginUser(req, res) {
+    console.log('loginUser')
+    res.send(200)
+}
+
+
 
 
 module.exports = router;
