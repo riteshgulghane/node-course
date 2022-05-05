@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/riteshgulghane/node-course#readme",
   "dependencies": {
+    "mysql2": "^2.3.3",
     "yargs": "^17.4.0"
   }
 }
